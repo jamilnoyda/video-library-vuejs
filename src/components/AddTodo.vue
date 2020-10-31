@@ -1,25 +1,29 @@
 <template>
-  <form @submit="onSubmit">
+  <form @submit="addTodo">
     <input type="text" v-model="title" name="title" aria-placeholder="Add Todo" />
     <input value="Add" type="submit" class="btn" />
   </form>
 </template>
 <script>
-import { mapActions } from "vuex";
 
 // import uuid from 'uuid';
 export default {
+  
   name: "AddTodo",
-  methods: {
-    ...mapActions(["saveTodos"]),
+  methods:{
+    addTodo(e){
+      e.preventDefault()
+      const newTodo={
+        // id: uuid.v4(),
+        id: Math.floor(Math.random() * 1001),
 
-    onSubmit(e) { 
-      e.preventDefault();
-      
-      this.saveTodos(this.title);
-      this.title = "";
-    },
-  },
+
+        title:this.title,
+        is_done:false
+      }
+      this.$emit('add-todo',newTodo)
+    }
+  }
 };
 </script>
 

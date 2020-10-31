@@ -1,30 +1,21 @@
 <template>
-  <div class="todo-item" v-bind:class="{'is-complete':todo.completed}">
-    <input type="checkbox" v-on:change="markDone(todo)" v-model="value" class="checkbox" />
-    <button @click="deleteTodo(todo.id)" class="del">x</button>
+  <div class="todo-item" v-bind:class="{'is-complete':todo.is_done}">
+
+    <input type="checkbox" v-on:change="markDone" class="checkbox"  />
+    <button @click="$emit('del-todo',todo.id)" class="del" >x</button>
 
     <p>{{todo.title}}</p>
   </div>
 </template>
 <script>
-import { mapActions } from "vuex";
-
 export default {
   name: "TodoItem",
   props: ["todo"],
-  methods: {
-    ...mapActions(["deleteTodo", "doneTodo"]),
-    markDone(todo) {
-      const updateTodo = {
-        id: todo.id,
-        title: todo.title,
-        completed: !todo.completed,
-      };
-
-      this.doneTodo(updateTodo);
-
-    },
-  },
+  methods:{
+      markDone(){
+          this.todo.is_done= !this.todo.is_done;
+      }
+  }
 };
 </script>
 
@@ -53,6 +44,5 @@ export default {
 
   cursor: pointer;
   float: left;
-}
-
+} 
 </style>

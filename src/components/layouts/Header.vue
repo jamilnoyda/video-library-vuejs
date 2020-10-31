@@ -1,43 +1,26 @@
 <template>
-  <header>
-    <h1>Todo List</h1>
-    <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
-    </div>
-  </header>
+    <header>
+        <h1>Todo List</h1>
+    </header>
 </template>
 <script>
 export default {
-  name: "Header",
-};
+    name:"todo- list"
+}
 </script>
 
 
 <style scoped>
-header {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-}
-header a {
-  color: #fff;
-  padding-right: 5px;
-  text-decoration: none;
-}
-#nav {
-  padding: 30px;
-  text-decoration: none;
-
-}
-
-#nav a {
-  font-weight: bold;
-  color: white;
-}
-
-#nav a.router-link-exact-active {
-  color: #405264;
-}
+  header {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  header a {
+    color: #fff;
+    padding-right: 5px;
+    text-decoration: none;
+  }
+  
 </style>
