@@ -1,29 +1,41 @@
 <template>
   <form @submit="addTodo">
-    <input type="text" v-model="title" name="title" aria-placeholder="Add Todo" />
+    <input
+      type="text"
+      v-model="title"
+      name="title"
+      aria-placeholder="Add Todo"
+    />
+
+    <select v-model="selected">
+      <option disabled value="">Please select Category</option>
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+    </select>
+
     <input value="Add" type="submit" class="btn" />
   </form>
 </template>
 <script>
-
 // import uuid from 'uuid';
 export default {
-  
   name: "AddTodo",
-  methods:{
-    addTodo(e){
-      e.preventDefault()
-      const newTodo={
-        // id: uuid.v4(),
+  methods: {
+    addTodo(e) {
+      e.preventDefault();
+      const newTodo = {
+        
         id: Math.floor(Math.random() * 1001),
 
+        title: this.title,
+      
+        category:this.selected
 
-        title:this.title,
-        is_done:false
-      }
-      this.$emit('add-todo',newTodo)
-    }
-  }
+      };
+      this.$emit("add-todo", newTodo);
+    },
+  },
 };
 </script>
 

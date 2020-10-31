@@ -48,17 +48,25 @@ export default {
           id: 1,
           title: "title one todot1",
           is_done: true,
+          category:"A",
+          loop:20,
           has_checklist: true,
         },
         {
           id: 2,
           title: "title one todot2",
+          category:"A",
+          loop:20,
+          
           is_done: false,
           has_checklist: true,
         },
         {
           id: 3,
           title: "title one todot3",
+          category:"A",
+          loop:20,
+          
           is_done: true,
           has_checklist: false,
         },
@@ -77,6 +85,7 @@ export default {
       //   is_done: false,
       //   has_checklist: false,
       // };
+      console.log(newTodo)
       this.todos.push(newTodo);
     },
   },

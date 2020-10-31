@@ -1,10 +1,14 @@
 <template>
-  <div class="todo-item" v-bind:class="{'is-complete':todo.is_done}">
+  <div class="todo-item" >
 
-    <input type="checkbox" v-on:change="markDone" class="checkbox"  />
+
     <button @click="$emit('del-todo',todo.id)" class="del" >x</button>
 
-    <p>{{todo.title}}</p>
+    <p class="item-text" >{{todo.title}}</p>
+    <p class="item-text">{{todo.category}}</p>
+    <p class="item-text">{{todo.loop}}</p>
+ 
+ 
   </div>
 </template>
 <script>
@@ -13,7 +17,7 @@ export default {
   props: ["todo"],
   methods:{
       markDone(){
-          this.todo.is_done= !this.todo.is_done;
+          
       }
   }
 };
@@ -37,12 +41,16 @@ export default {
   cursor: pointer;
   float: right;
 }
-.checkbox {
+.item-text {
+  color:black;
+
+}
+/* .checkbox {
   color: #fff;
   border: none;
   padding: 5px 9px;
 
-  cursor: pointer;
+  
   float: left;
-} 
+}  */
 </style>

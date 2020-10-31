@@ -1,6 +1,6 @@
 <template>
     <header>
-        <h1>Todo List</h1>
+        <h1>Video Library</h1>
     </header>
 </template>
 <script>
